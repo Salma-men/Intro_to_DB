@@ -1,0 +1,11 @@
+# Ignore system directories and files
+*.log
+*.bak
+*.tmp
+.vscode/
+OneDrive/
+AppData/
+Desktop/
+Documents/
+Downloads/
+Pictures/
