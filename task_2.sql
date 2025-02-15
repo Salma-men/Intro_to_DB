@@ -1,14 +1,14 @@
 -- Use the alx_book_store database
 USE alx_book_store;
 
--- Create the 'Authors' table (note the capitalization)
+-- Create the 'Authors' table
 CREATE TABLE IF NOT EXISTS Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
-    author_name VARCHAR(255) NOT NULL,  -- Changed from 'name' to 'author_name'
+    author_name VARCHAR(255) NOT NULL,  -- Correct column name as 'author_name'
     birth_date DATE
 );
 
--- Create the 'Books' table (note the capitalization)
+-- Create the 'Books' table
 CREATE TABLE IF NOT EXISTS Books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -18,16 +18,16 @@ CREATE TABLE IF NOT EXISTS Books (
     FOREIGN KEY (author_id) REFERENCES Authors(author_id) ON DELETE SET NULL
 );
 
--- Create the 'Customers' table (note the capitalization)
+-- Create the 'Customers' table with customer_name and email of length VARCHAR(215)
 CREATE TABLE IF NOT EXISTS Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
+    customer_name VARCHAR(215) NOT NULL,  -- Correct column name as 'customer_name' and data type VARCHAR(215)
+    email VARCHAR(215) UNIQUE NOT NULL,   -- Correct data type as VARCHAR(215) for email
     phone_number VARCHAR(20),
     address TEXT
 );
 
--- Create the 'Orders' table (note the capitalization)
+-- Create the 'Orders' table
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS Orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id) ON DELETE CASCADE
 );
 
--- Create the 'Order_Details' table (note the capitalization)
+-- Create the 'Order_Details' table
 CREATE TABLE IF NOT EXISTS Order_Details (
     order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
