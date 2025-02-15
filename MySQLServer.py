@@ -9,24 +9,24 @@ def create_database():
             user="root",
             password="Emirates1@"
         )
-        
-        # Check if the connection was successful
+
+        # Ensure the connection was successful
         if connection.is_connected():
             cursor = connection.cursor()
             try:
-                # Create the database if it doesn't already exist
+                # Create the database if it doesn't exist
                 cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
                 print("Database 'alx_book_store' created successfully!")
             except Error as db_error:
-                # Handle errors related to database creation
-                print(f"Error while creating database: {db_error}")
+                # Specifically catch errors that might occur when creating the database
+                print(f"Failed to create database. Error: {db_error}")
             
-    except Error as e:
-        # Handle connection errors
-        print(f"Error: {e}")
+    except Error as conn_error:
+        # Handle any connection-related issues
+        print(f"Failed to connect to MySQL server. Error: {conn_error}")
     
     finally:
-        # Ensure resources are closed
+        # Close the cursor and connection if they were opened
         if 'cursor' in locals() and cursor:
             cursor.close()
         if 'connection' in locals() and connection.is_connected():
