@@ -1,0 +1,14 @@
+# Ignore system and user-specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+__pycache__/
+db.sqlite3
+.env
+.venv
+/node_modules/
+/venv/
+ntuser.dat*
+NTUSER.DAT*
+OneDrive*/
